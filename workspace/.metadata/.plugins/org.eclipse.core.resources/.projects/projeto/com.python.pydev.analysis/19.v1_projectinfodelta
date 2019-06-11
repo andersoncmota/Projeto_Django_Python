@@ -1,0 +1,17 @@
+INSTUPestado.forms
+C:\Users\Rafael\Desktop\Python\tcoi5\workspace\projeto\estado\forms.py
+INFOS:&&1|1|2|0|3|4|7&&3|4|2|1|3|5|5&&3|5|2|1|3|6|5&&1|6|2|1|3|8|11&&3|7|2|8|3|9|9&&3|9|2|8|3|13|9&&1|10|2|0|3|15|7&&3|11|2|10|3|16|5&&3|12|2|10|3|17|5&&3|13|2|10|3|18|5&&1|6|2|10|3|20|11&&3|7|2|14|3|21|9&&3|9|2|14|3|26|9
+cidade_nome=11
+Meta=6
+estado=13
+cidade_ddd=12
+EstadoForm.Meta=8
+estado.forms=2
+estado_nome=4
+C:\Users\Rafael\Desktop\Python\tcoi5\workspace\projeto\estado\forms.py=3
+CidadeForm.Meta=14
+CidadeForm=10
+EstadoForm=1
+model=7
+fields=9
+estado_sigla=5

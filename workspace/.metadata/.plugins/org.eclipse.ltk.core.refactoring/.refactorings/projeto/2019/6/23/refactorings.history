@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;projeto/cidade/templates/listar.html&apos; to &apos;listar_erro.html&apos;" description="Rename resource &apos;listar.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="cidade/templates/listar.html" name="listar_erro.html" stamp="1559491004622" updateReferences="true"/>
+</session>

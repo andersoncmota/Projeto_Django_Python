@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{%block main%}
+
+<form class="form-horizontal" role="form" method="post" >
+       {%csrf_token%}
+  
+       <div class="row">
+	       <div class="col-sm-6">
+	          <div class="form-group {% if field.errors %} has-error {%endif%}">
+	          <label for="id_estado_nome" 
+	                 class="col-sm-2 control-label">{{form.estado_nome.label}}</label>
+	                 {% render_field form.estado_nome class='form-control'%}
+	                 {% for error in form.estado_nome.errors %}
+	                    <span class="help-block">{{error}}</span>
+	                 {% endfor %} 
+	          </div>
+	       </div>
+	       <div class="col-sm-6">
+	          <div class="form-group {% if field.errors %} has-error {%endif%}">
+	          <label for="id_estado_sigla" 
+	                 class="col-sm-2 control-label">{{form.estado_sigla.label}}</label>
+	                 {% render_field form.estado_sigla class='form-control'%}
+	                 {% for error in form.estado_sigla.errors %}
+	                    <span class="help-block">{{error}}</span>
+	                 {% endfor %} 
+	          </div>
+	       </div> 
+       </div> 
+  
+  
+       <div class="row">
+          <div class="form-group">
+	          <div class="offset-sm-2">
+	              <button type="submit"
+	                      class="btn btn-primary">Salvar</button>
+	          </div>
+          </div>
+      </div>
+  </form>
+
+{%endblock%}

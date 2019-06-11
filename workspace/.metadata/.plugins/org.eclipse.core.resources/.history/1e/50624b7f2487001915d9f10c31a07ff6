@@ -1,0 +1,56 @@
+from django.db import models
+from django.template.defaultfilters import default
+from unittest.util import _MAX_LENGTH
+from django.template.context_processors import request
+
+# Create your models here.
+
+class EstadoModel(models.Model):
+    
+    estado_id = models.AutoField(primary_key=True)
+    estado_nome = models.CharField(
+                       max_length=45,
+                       null=True,
+                       blank=True,
+                       verbose_name="Estado_Nome")
+    estado_sigla = models.CharField(
+                       max_length=2,
+                       null=True,
+                       blank=True,
+                       verbose_name="Estado_Sigla")
+    
+
+    def __str__(self):
+        return self.estado_nome
+
+class CidadeModel(models.Model):
+    cidade_id = models.AutoField(primary_key=True)
+    cidade_nome = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        verbose_name="Cidade_Nome")
+    cidade_ddd = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        verbose_name="Cidade_ddd")
+    
+    estado = models.ForeignKey(EstadoModel, on_delete=models.CASCADE, null=True, default=EstadoModel.objects.get(id=1))
+
+    class Meta:
+        ordering = ['cidade_nome']
+        verbose_name = 'Cidade'
+        verbose_name_plural = 'Cidades'
+
+    def __str__(self):
+        return self.cidade_nome
+    
+    
+
+    
+    
+    
+    
+    
+

@@ -1,0 +1,27 @@
+from django import forms
+from .models import EstadoModel, CidadeModel
+
+class EstadoForm(forms.ModelForm):
+    estado_nome = forms.CharField(required=True, label="Estado_Nome")
+    estado_sigla = forms.CharField(required=True, label="Estado_sigla")
+
+    class Meta:
+        model = EstadoModel
+        fields = [
+            'estado_nome',
+            'estado_sigla',
+        ]
+
+class CidadeForm(forms.ModelForm):
+    cidade_nome = forms.CharField(required=True, label="Cidade_Nome")
+    cidade_ddd = forms.CharField(required=True, label="Cidade_ddd")
+    estado = forms.ModelChoiceField(queryset=EstadoModel.objects.all(), label="Estado")
+
+    class Meta:
+        model = CidadeModel
+        fields = [
+            'cidade_nome',
+            'cidade_ddd',
+            'estado',
+        ]
+    

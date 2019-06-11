@@ -1,0 +1,15 @@
+from django import forms
+from .models import EstadoModel
+
+class EstadoForm(forms.ModelForm):
+    estado_nome = forms.CharField(required=True, label="Estado_Nome")
+    estado_sigla = forms.CharField(required=True, label="Estado_sigla")
+
+    class Meta:
+        model = EstadoModel
+        fields = [
+            'estado_nome',
+            'estado_sigla',
+        ]
+
+    

@@ -1,0 +1,59 @@
+{%extends "base.html"%}
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+{%block main%}
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table
+                      table-striped
+                      table-bordered
+                      table-hover
+                      table-collapse">
+         <thead>
+            <tr>
+                <th>Cidade Nome</th>
+                <th>Cidade DDD</th>
+                <th>Estado</th>
+                <th>Ações</th>
+            </tr>
+         </thead>
+         <tbody>
+            {%for c in form%}
+            <tr>
+                <td>{{ c.cidade_nome }}</td>
+                <td>{{ c.cidade_ddd }}</td>
+                <td>{{ c.estado }}</td>
+				<td class="text-center">
+				  <a id="idAlterar" class="btn btn-warning btn-sm"
+				     title="Alterar dados da cidade"
+					 href="{% url 'update_cidade' c.cidade_id%}">
+                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            	  </a>
+				  <a id="idExcluir" class="btn btn-danger btn-sm"
+				     title="Excluir dados da cidade"
+					 href="{% url 'delete_cidade' c.cidade_id%}">
+                     <i class="fa fa-trash-o" aria-hidden="true"></i>
+				  </a>
+                  <a id="idConsultar" class="btn btn-info btn-sm"
+				     title="Consultar dados da cidade"
+					 href="{% url 'view_cidade' c.cidade_id%}">
+                     <i class="fa fa-eye" aria-hidden="true"></i>
+				  </a>
+				</td>
+            </tr>
+            {%endfor%}
+         </tbody>
+        </table>
+        <a id="idIncluir" class="btn btn-primary" href="{% url 'insert_cidade' %}">Nova Cidade <i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+
+
+    </div>
+
+
+</div>
+
+{%endblock%}

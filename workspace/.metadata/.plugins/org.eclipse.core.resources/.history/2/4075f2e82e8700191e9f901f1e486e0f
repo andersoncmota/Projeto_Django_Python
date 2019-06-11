@@ -1,0 +1,21 @@
+
+from django.contrib import admin
+from django.urls import path
+from estado import views
+
+##http://localhost:8000/estado/incluir
+##http://localhost:8000/estado/listar
+urlpatterns = [
+         ## URL     ## nome função               chamada interna
+    path('incluir',views.insert_estado,name='insert_estado'),
+    path('alterar/<int:id>',views.update_estado,name='update_estado'),
+    path('excluir/<int:id>',views.delete_estado,name='delete_estado'),
+    path('consultar/<int:id>',views.view_estado,name='view_estado'),
+    path('listar',views.list_estado,name='list_estado'),
+    
+    path('cidade/incluir',views.insert_cidade,name='insert_cidade'),
+    path('cidade/<int:id>',views.update_cidade,name='update_cidade'),
+    path('cidade/<int:id>',views.delete_cidade,name='delete_cidade'),
+    path('cidade/<int:id>',views.view_cidade,name='view_cidade'),
+    path('cidade/listar',views.list_cidade,name='list_cidade'),
+]

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{%block main%}
+
+<form class="form-horizontal" role="form" method="post" >
+       {%csrf_token%}
+  
+       <div class="row">
+	       <div class="col-sm-6">
+	          <div class="form-group {% if field.errors %} has-error {%endif%}">
+	          <label for="id_cidade_nome" 
+	                 class="col-sm-2 control-label">{{form.cidade_nome.label}}</label>
+	                 {% render_field form.cidade_nome class='form-control'%}
+	                 {% for error in form.cidade_nome.errors %}
+	                    <span class="help-block">{{error}}</span>
+	                 {% endfor %} 
+	          </div>
+	       </div>
+	       <div class="col-sm-6">
+	          <div class="form-group {% if field.errors %} has-error {%endif%}">
+	          <label for="id_cidade_ddd" 
+	                 class="col-sm-2 control-label">{{form.cidade_ddd.label}}</label>
+	                 {% render_field form.cidade_ddd class='form-control'%}
+	                 {% for error in form.cidade_ddd.errors %}
+	                    <span class="help-block">{{error}}</span>
+	                 {% endfor %} 
+	          </div>
+	       </div>
+	       <div class="col-sm-6">
+	          <div class="form-group {% if field.errors %} has-error {%endif%}">
+	          <label for="id_estado" 
+	                 class="col-sm-2 control-label">{{form.estado_id.label}}</label>
+	                 {% render_field form.estado_sigla class='form-control'%}
+	                 {% for error in form.estado_sigla.errors %}
+	                    <span class="help-block">{{error}}</span>
+	                 {% endfor %} 
+	          </div>
+	       </div>  
+       </div> 
+  
+  
+       <div class="row">
+          <div class="form-group">
+	          <div class="offset-sm-2">
+	              <button type="submit"
+	                      class="btn btn-primary">Salvar</button>
+	          </div>
+          </div>
+      </div>
+  </form>
+
+{%endblock%}

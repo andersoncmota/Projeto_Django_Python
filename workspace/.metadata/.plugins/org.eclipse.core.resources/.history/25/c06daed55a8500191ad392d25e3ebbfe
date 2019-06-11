@@ -1,0 +1,15 @@
+
+from django.contrib import admin
+from django.urls import path
+from cidade import views
+
+##http://localhost:8000/cidade/incluir
+##http://localhost:8000/cidade/listar
+urlpatterns = [
+         ## URL     ## nome função               chamada interna
+    path('incluir',views.insert_cidade,name='insert_cidade'),
+    path('alterar/<int:id>',views.update_cidade,name='update_cidade'),
+    path('excluir/<int:id>',views.delete_cidade,name='delete_cidade'),
+    path('consultar/<int:id>',views.view_cidade,name='view_cidade'),
+    path('listar',views.list_cidade,name='list_cidade'),
+]

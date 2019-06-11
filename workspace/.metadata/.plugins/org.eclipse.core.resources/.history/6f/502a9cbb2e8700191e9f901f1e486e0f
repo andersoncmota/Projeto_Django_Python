@@ -1,0 +1,109 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import EstadoForm
+from .models import EstadoModel
+
+##from django.http import HttpResponse
+
+# Create your views here.
+
+def list_estado(request):
+    form = EstadoModel.objects.all() ##ler a tabela estado
+    context = {
+        'form':form,
+    }
+    return render(request, 'listar_estado.html', context)
+
+def insert_estado(request):
+    form = EstadoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('list_estado')
+    context = {
+        'form':form
+    }
+    return render(request, 'novo_estado.html',context)
+
+def update_estado(request, id):
+    estado = get_object_or_404(EstadoModel, estado_id=id)
+    form = EstadoForm(request.POST or None, instance = estado)
+    if form.is_valid():
+        form.save()
+        return redirect('list_estado')
+    context = {
+        'form':form,
+    }
+    return render(request, 'atualizar_estado.html', context)
+
+
+def delete_estado(request, id):
+    estado = get_object_or_404(EstadoModel, estado_id=id)
+    form = EstadoForm(request.POST or None, instance = estado)
+    if request.method == 'POST':
+        estado.delete()
+        return redirect('list_estado')
+    context={
+        'form':form,
+    }
+    return render(request, 'atualizar_estado.html', context)
+
+
+def view_estado(request, id):
+    estado = get_object_or_404(EstadoModel, estado_id=id)
+    form = EstadoForm(request.POST or None, instance = estado)
+    if request.method == 'POST':
+        return redirect('list_estado')
+    context={
+        'form':form,
+    }
+    return render(request, 'atualizar_estado.html', context)
+
+ef list_cidade(request):
+    form = CidadeModel.objects.all() ##ler a tabela cidade
+    context = {
+        'form':form,
+    }
+    return render(request, 'listar_cidade.html', context)
+
+def insert_cidade(request):
+    form = CidadeForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('list_cidade')
+    context = {
+        'form':form
+    }
+    return render(request, 'nova_cidade.html',context)
+
+def update_cidade(request, id):
+    cidade = get_object_or_404(CidadeModel, cidade_id=id)
+    form = CidadeForm(request.POST or None, instance = cidade)
+    if form.is_valid():
+        form.save()
+        return redirect('list_cidade')
+    context = {
+        'form':form,
+    }
+    return render(request, 'atualizar_cidade.html', context)
+
+
+def delete_cidade(request, id):
+    cidade = get_object_or_404(CidadeModel, cidade_id=id)
+    form = CidadeForm(request.POST or None, instance = cidade)
+    if request.method == 'POST':
+        cidade.delete()
+        return redirect('list_cidade')
+    context={
+        'form':form,
+    }
+    return render(request, 'atualizar_cidade.html', context)
+
+
+def view_cidade(request, id):
+    cidade = get_object_or_404(CidadeModel, cidade_id=id)
+    form = CidadeForm(request.POST or None, instance = cidade)
+    if request.method == 'POST':
+        return redirect('list_cidade')
+    context={
+        'form':form,
+    }
+    return render(request, 'atualizar_cidade.html', context)

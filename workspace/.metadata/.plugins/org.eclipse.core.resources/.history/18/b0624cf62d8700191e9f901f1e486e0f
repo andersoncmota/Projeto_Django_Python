@@ -1,0 +1,32 @@
+from django.db import models
+from django.template.defaultfilters import default
+from unittest.util import _MAX_LENGTH
+
+# Create your models here.
+
+class EstadoModel(models.Model):
+    estado_id = models.AutoField(primary_key=True)
+    estado_nome = models.CharField(
+        max_length=100,
+        null=False,
+        blank=False,
+        verbose_name="Estado_Nome")
+    estado_sigla = models.CharField(
+        max_length=2,
+        null=False,
+        blank=False,
+        verbose_name="Estado_Sigla")
+
+    class Meta:
+        ordering = ['estado_nome']
+        verbose_name = 'Estado'
+        verbose_name_plural = 'Estados'
+
+    def __str__(self):
+        return self.estado_nome
+    
+    
+    
+    
+    
+
